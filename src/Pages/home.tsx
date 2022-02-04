@@ -1,4 +1,5 @@
 import { Footer } from "./footer";
+import { Link } from "react-router-dom";
 
 export function Home() {
   return (
@@ -10,16 +11,14 @@ export function Home() {
             Level-up your knowledge with{" "}
             <span className="text-primaryCoral">Quiz-Up</span>{" "}
           </h1>
-          <a
-            href="/"
-            className="text-2xl bg-primaryCoral text-white rounded-full px-8 py-4 font-semibold text-center uppercase"
+          <Link
+            to="/quizcategory"
+            className="text-2xl bg-primaryCoral shadow-lg text-white rounded-full px-8 py-4 font-semibold text-center uppercase"
           >
             Start Quiz
-          </a>
+          </Link>
         </section>
         <img src="Images/Hero.png" alt="Quiz-Up" className="w-96 h-96"></img>
-
-        {/* <img src="Images/Hero.png" alt="Hero rocket" className="w-8"> </img> */}
       </div>
       <Footer />
     </>

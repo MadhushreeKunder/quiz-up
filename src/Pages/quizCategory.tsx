@@ -1,4 +1,4 @@
-import { Footer } from "./utils/footer";
+import { Footer } from "../utils/footer";
 
 export function QuizCategory() {
   return (
@@ -7,20 +7,20 @@ export function QuizCategory() {
         <h1 className="font-semibold text-4xl text-secondaryDark mb-8 ">
           Quiz category
         </h1>
-        <div className="flex justify-center text-center items-center  space-x-8">
-          <div className="p-4 shadow-xl rounded-xl">
+        <div className="flex justify-center flex-wrap text-center items-center">
+          <div className="p-4 shadow-xl rounded-xl m-4">
             <h2 className="text-3xl font-medium text-secondaryDark mb-4 ">
-              ISRO
+              Indian Space Program
             </h2>
-            <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 font-semibold text-center uppercase">
+            <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 mt-2 mb-4 font-semibold text-center uppercase">
               Start Quiz
             </button>
           </div>
-          <div className="p-4 shadow-xl rounded-xl">
+          <div className="p-4 shadow-xl rounded-xl m-4">
             <h2 className="text-3xl font-medium text-secondaryDark mb-4 ">
-              NASA
+              Outer Space and Stars
             </h2>
-            <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 font-semibold text-center uppercase">
+            <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 mt-2 mb-4 font-semibold text-center uppercase">
               Start Quiz
             </button>
           </div>

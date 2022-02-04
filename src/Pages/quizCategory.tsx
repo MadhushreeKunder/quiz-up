@@ -1,4 +1,4 @@
-import { Footer } from "./footer";
+import { Footer } from "./utils/footer";
 
 export function QuizCategory() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Home } from "./Pages/home";
-import { Header } from "./Pages/header";
+import { Header } from "./Pages/utils/header";
 import { Route, Routes } from "react-router-dom";
 import { QuizCategory } from "./Pages/quizCategory";
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Footer } from "../utils/footer";
 
 export function QuizCategory() {
@@ -13,7 +14,7 @@ export function QuizCategory() {
               Indian Space Program
             </h2>
             <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 mt-2 mb-4 font-semibold text-center uppercase">
-              Start Quiz
+              <Link to="/quizquestions">Start Quiz</Link>
             </button>
           </div>
           <div className="p-4 shadow-xl rounded-xl m-4">
@@ -21,7 +22,7 @@ export function QuizCategory() {
               Outer Space and Stars
             </h2>
             <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 mt-2 mb-4 font-semibold text-center uppercase">
-              Start Quiz
+              <Link to="/quizquestions">Start Quiz</Link>
             </button>
           </div>
         </div>

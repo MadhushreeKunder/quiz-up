@@ -1,3 +1,3 @@
 export {Home} from "./home";
 export {QuizCategory} from "./quizCategory";
-export {QuizQuestions} from "./quizQuestions";
+export {QuizQuestions} from "./quizQuestionsCard";

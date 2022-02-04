@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export function Header(){
@@ -9,8 +10,8 @@ export function Header(){
                </a>
                <nav className="flex items-center justify-end relative h-auto">
                    <ul className="flex items-center uppercase font-semibold">
-                       <li className="ml-6 text-primaryCoral">Home</li>
-                       <li className="ml-6 text-primaryCoral">Login</li>
+                       <Link to="/" className="ml-6 text-primaryCoral">Home</Link>
+                       <Link to="/login" className="ml-6 text-primaryCoral">Login</Link>
                    </ul>
                </nav>
                

@@ -6,6 +6,7 @@ import { useEffect, useReducer } from "react";
 import { resultReducer } from "../reducers/result/result.reducer";
 import { InitialResultState } from "../reducers/result/result.reducer.types";
 import { setResult } from "../utils/utils";
+import { updateQuiz, sendSolvedQuizzes } from "./utils";
 
 export const calculateTotalUserScore = (userDetailsState) => {
   return userDetailsState.solvedQuizzes.reduce((acc, value) => {
@@ -112,9 +113,56 @@ export const QuizComp = () => {
             </button>
           </Link>
 
-          <button className="py-2 px-4 rounded-lg border-2 border-primaryCoral text-primaryCoral font-medium">
-            Next
-          </button>
+          {currentQuestionNo >= currentQuiz!.questions!.length - 1 ? (
+            <button
+              onClick={() => {
+                const check = userDetailsState.solvedQuizzes.some(
+                  (item) => item.quizId._id === currentQuiz?._id
+                );
+                check
+                  ? updateQuiz(
+                      currentQuiz?._id,
+                      score,
+                      userDetailsDispatch,
+                      navigate,
+                      resultState,
+                      currentQuiz?.questions?.length,
+                      calculateTotalUserScore(userDetailsState),
+                      knowledgeLevel,
+                      quizDispatch,
+                      user.username
+                    )
+                  : sendSolvedQuizzes(
+                      currentQuiz?._id,
+                      score,
+                      userDetailsDispatch,
+                      navigate,
+                      resultState,
+                      currentQuiz?.questions?.length,
+                      calculateTotalUserScore(userDetailsState),
+                      knowledgeLevel,
+                      quizDispatch,
+                      user.username
+                    );
+              }}
+              className="py-2 px-4 rounded-lg border-2 border-primaryCoral text-primaryCoral font-medium"
+            >
+              {" "}
+              Stop
+            </button>
+          ) : (
+            <button
+              className="py-2 px-4 rounded-lg border-2 border-primaryCoral text-primaryCoral font-medium"
+              onClick={() =>
+                quizDispatch({
+                  type: "SET_CURRENT_QUESTION",
+                  payload: { questionNo: currentQuestionNo },
+                })
+              }
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </>

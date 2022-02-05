@@ -1,7 +1,7 @@
 import { categoriesDB, quizzesDB } from "../data";
 import { Category } from "../data/quizdb.types";
 import { InitialQuizState, QuizAction } from "../reducers/quiz.reducer.types";
-import { getScore } from "./utils";
+import { getQuizzesByCategory, getScore } from "./utils";
 
 describe("should test utility function", () => {
   test("should calculate the score of a user", () => {
@@ -32,6 +32,22 @@ describe("should test utility function", () => {
     expect(state).toBe(10);
   });
 
+  test('should properly filter out categories', ()=>{
+      const viewByCategory: Category = {
+          _id: '11',
+          name: 'ISRO',
+          noOfQuizzes: 1
+      };
 
-  
+      const state = getQuizzesByCategory(quizzesDB, viewByCategory)
+      expect(state).toEqual([quizzesDB[0]])
+  })
+
+  test('should get category name', () => {
+    const state = getCategoryName('11', categoriesDB)
+    expect(state).toBe('ISRO');
+  })
+
+
+
 });

@@ -40,3 +40,29 @@ export const getQuizzesByCategory = (
       )
     : [];
 };
+
+export const setResult = (
+  correct: boolean,
+  resultState: InitialResultState,
+  dispatch
+) => {
+  return correct
+    ? dispatch({
+        type: "RIGHT_ANSWERS",
+        payload: { rightAnswers: resultState.rightAnswers },
+      })
+    : dispatch({
+        type: "WRONG_ANSWERS",
+        payload: { wrongAnswers: resultState.wrongAnswers },
+      });
+};
+
+export const getCategoryName = (
+  categroryId: string,
+  categories: Category[]
+): string | undefined => {
+  const getCategory = categories.find(
+    (category) => category._id === categroryId
+  );
+  return getCategory ? getCategory.name : undefined;
+};

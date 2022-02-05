@@ -2,8 +2,8 @@ import { Quiz } from "../../data"
 import { InitialUserDetailsState, UserDetailsAction } from "../../reducers/userDetail/userDetail.reducer.types"
 
 export type InitialUserDetailsContext = {
-    userState: InitialUserDetailsState,
-    userDispatch: (action: UserDetailsAction) => void,
+    userDetailsState: InitialUserDetailsState,
+    userDetailsDispatch: (action: UserDetailsAction) => void,
 }
 
 export type UserSolvedQuizzes = {

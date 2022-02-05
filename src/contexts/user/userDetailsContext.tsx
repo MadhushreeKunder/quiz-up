@@ -6,6 +6,10 @@ import { InitialUserDetailsContext } from "./userDetails.types";
 import { Status } from "../utils.types";
 import { useEffect, useReducer, useContext } from "react";
 import { UserDetails } from "./userDetails.types";
+import { InitialUserDetailsState } from "../../reducers/userDetail/userDetail.reducer.types";
+import { useAuth } from "../auth/authContext";
+import { userDetailsReducer } from "../../reducers/userDetail/userDetail.reducer";
+
 
 export const UserDetailContext = createContext({} as InitialUserDetailsContext);
 
@@ -70,7 +74,7 @@ export const UserDetailProvider = ({ children }) => {
     }
   }, [token]);
 
-  const [userDetailsState, userDetailsDispatch] = useReducer(userReducer, initialuserDetailsState);
+  const [userDetailsState, userDetailsDispatch] = useReducer(userDetailsReducer, initialUserDetailsState);
 
   console.log({ userDetailsState });
   console.log(userDetailsState.status);

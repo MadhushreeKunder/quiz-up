@@ -1,15 +1,15 @@
 import axios, { AxiosError } from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Backend_URL } from "../utils/utils";
-import { ServorError } from "./utils.types";
+import { Backend_URL } from "../../utils/utils";
+import { ServorError } from "../utils.types";
 import {
   InitialAuthState,
   User,
   LoginResponse,
   SignupResponse,
 } from "./auth.types";
-import { Status } from "./utils.types";
+import { Status } from "../utils.types";
 import {
   localStorageHasItem,
   setupAuthHeaderForServiceCalls,

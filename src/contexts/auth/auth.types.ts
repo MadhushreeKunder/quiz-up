@@ -1,4 +1,4 @@
-import { Status } from "./utils.types";
+import { Status } from "../utils.types";
 
 export type InitialAuthState = {
   token: string | null;

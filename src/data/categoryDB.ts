@@ -1,4 +1,4 @@
-import {Category} from "./quiz.types";
+import {Category} from "./quizdb.types";
 
 export const categoriesDB: Category[] = [
     {

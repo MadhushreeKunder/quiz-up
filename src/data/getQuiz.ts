@@ -1,4 +1,4 @@
-import { Quiz } from "./quiz.types";
+import { Quiz } from "./quizdb.types";
 
 export const quizDB: Quiz[] = [
   {

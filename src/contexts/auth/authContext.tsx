@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Backend_URL } from "../../utils/utils";
-import { ServorError } from "../utils.types";
+import { ServerError } from "../utils.types";
 import {
   InitialAuthState,
   User,
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   const [status, setStatus] = useState<Status>({
     loading: "",
     success: "",
-    error: {} as ServorError,
+    error: {} as ServerError,
   });
 
   const navigate = useNavigate();
@@ -78,12 +78,12 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error(error.response);
       if (axios.isAxiosError(error)) {
-        const servorError = error as AxiosError<ServorError>;
-        if (servorError && servorError.response) {
+        const serverError = error as AxiosError<ServerError>;
+        if (serverError && serverError.response) {
           return setStatus({
             error: {
-              errorMessage: servorError.response.data.errorMessage,
-              errorCode: servorError.response.data.errorCode,
+              errorMessage: serverError.response.data.errorMessage,
+              errorCode: serverError.response.data.errorCode,
             },
           } as Status);
         }
@@ -128,12 +128,12 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log(error.response);
       if (axios.isAxiosError(error)) {
-        const servorError = error as AxiosError<ServorError>;
-        if (servorError && servorError.response) {
+        const serverError = error as AxiosError<ServerError>;
+        if (serverError && serverError.response) {
           return setStatus({
             error: {
-              errorMessage: servorError.response.data.errorMessage,
-              errorCode: servorError.response.data.errorCode,
+              errorMessage: serverError.response.data.errorMessage,
+              errorCode: serverError.response.data.errorCode,
             },
           } as Status);
         }
@@ -150,7 +150,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = (): void => {
     setToken("");
-    setStatus({ loading: "", success: "", error: {} as ServorError });
+    setStatus({ loading: "", success: "", error: {} as ServerError });
 
     setUser({
       _id: "",

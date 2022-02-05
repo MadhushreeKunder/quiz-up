@@ -1,10 +1,10 @@
 export type Status = {
     loading?: string;
     success?: string;
-    error?: ServorError;
+    error?: ServerError;
 }
 
-export type ServorError = {
+export type ServerError = {
     errorMessage: string;
     errorCode: number;
 }

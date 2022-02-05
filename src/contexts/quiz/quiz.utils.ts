@@ -1,9 +1,9 @@
 import { Category, Quiz } from "../../data/quizdb.types";
-import { ServorError } from "../utils.types";
+import { ServerError } from "../utils.types";
 import axios, { AxiosError } from "axios";
 import { Backend_URL } from "../../utils/utils";
 
-export const getCategories = async (): Promise<Category[] | ServorError> => {
+export const getCategories = async (): Promise<Category[] | ServerError> => {
   try {
     const response = await axios.get<{ categories: Category[] }>(
       `${Backend_URL}/categories`
@@ -12,11 +12,11 @@ export const getCategories = async (): Promise<Category[] | ServorError> => {
     return response.data.categories;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      const servorError = error as AxiosError<ServorError>;
-      if (servorError && servorError.response) {
+      const serverError = error as AxiosError<ServerError>;
+      if (serverError && serverError.response) {
         return {
-          errorMessage: servorError.response.data.errorMessage,
-          errorCode: servorError.response.status,
+          errorMessage: serverError.response.data.errorMessage,
+          errorCode: serverError.response.status,
         };
       }
     }
@@ -28,27 +28,27 @@ export const getCategories = async (): Promise<Category[] | ServorError> => {
   }
 };
 
-export const getQuizzes = async (): Promise<Quiz[] | ServorError> => {
-    try{
-        const response = await axios.get<{quizzes: Quiz[]}>(
-            `${Backend_URL}/quizzes`
-        );
-        console.log({response});
-        return response.data.quizzes;
-    } catch(error){
-        if (axios.isAxiosError(error)){
-            const servorError =  error as AxiosError<ServorError>;
-            if (servorError && servorError.response){
-                return {
-                    errorMessage: servorError.response.data.errorMessage,
-                    errorCode: servorError.response.status,
-                };
-            }
-        }
-        console.log(error);
+export const getQuizzes = async (): Promise<Quiz[] | ServerError> => {
+  try {
+    const response = await axios.get<{ quizzes: Quiz[] }>(
+      `${Backend_URL}/quizzes`
+    );
+    console.log({ response });
+    return response.data.quizzes;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const serverError = error as AxiosError<ServerError>;
+      if (serverError && serverError.response) {
         return {
-            errorMessage: "Something went wrong, Try again!!",
-            errorCode: 403,
+          errorMessage: serverError.response.data.errorMessage,
+          errorCode: serverError.response.status,
         };
+      }
     }
-}
+    console.log(error);
+    return {
+      errorMessage: "Something went wrong, Try again!!",
+      errorCode: 403,
+    };
+  }
+};

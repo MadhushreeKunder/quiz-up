@@ -10,8 +10,25 @@ export type Question = {
   options: Option[];
 };
 
+export type UserScore = {
+  id: string;
+  userId: {username: string},
+  score: number;
+}
+
 export type Quiz = {
     quizName: string;
     _id: string;
     questions: Question[];
+    highScore?: UserScore[];
+    categoryId: {
+      _id: string;
+      name: string;
+    }
+}
+
+export type Category = {
+  _id: string;
+  name: string;
+  noOfQuizzes: number;
 }

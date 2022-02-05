@@ -1,6 +1,6 @@
 import { categoriesDB, quizzesDB } from "../data";
 import { Category } from "../data/quizdb.types";
-import { InitialQuizState, QuizAction } from "../reducers/quiz.reducer.types";
+import { InitialQuizState, QuizAction } from "../reducers/quiz/quiz.reducer.types";
 import { getQuizzesByCategory, getScore } from "./utils";
 
 describe("should test utility function", () => {

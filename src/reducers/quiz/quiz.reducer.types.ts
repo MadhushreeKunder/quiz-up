@@ -1,5 +1,5 @@
-import { Category, Quiz, Option } from "../data/quizdb.types";
-import { Status } from "../contexts/utils.types";
+import { Category, Quiz, Option } from "../../data/quizdb.types";
+import { Status } from "../../contexts/utils.types";
 
 export type InitialQuizState = {
   quizzes: Quiz[] | null;

@@ -1,7 +1,7 @@
-import {  initialQuizState} from "../contexts/quiz/quizContext";
-import {Category} from "../data/quizdb.types";
+import {  initialQuizState} from "../../contexts/quiz/quizContext";
+import {Category} from "../../data/quizdb.types";
 import { InitialQuizState, QuizAction} from "./quiz.reducer.types";
-import { getScore } from "../utils/utils";
+import { getScore } from "../../utils/utils";
 
 
 export const quizReducer = (

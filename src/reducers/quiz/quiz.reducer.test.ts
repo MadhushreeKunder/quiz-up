@@ -1,7 +1,7 @@
-import { initialQuizState } from "../contexts/quiz/quizContext";
-import { categoriesDB, quizzesDB } from "../data";
+import { initialQuizState } from "../../contexts/quiz/quizContext";
+import { categoriesDB, quizzesDB } from "../../data";
 import { InitialQuizState, QuizAction } from "./quiz.reducer.types";
-import { getScore } from "../utils/utils";
+import { getScore } from "../../utils/utils";
 import { quizReducer } from "./quiz.reducer";
 jest.mock('..utils/utils.ts');
 

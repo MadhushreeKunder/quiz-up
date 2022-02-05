@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { Category } from "../../data/quizdb.types";
 import { ContextInititalState } from "./quiz.types";
-import { InitialQuizState } from "../../reducers/quiz.reducer.types";
-import { quizReducer } from "../../reducers/quiz.reducer";
+import { InitialQuizState } from "../../reducers/quiz/quiz.reducer.types";
+import { quizReducer } from "../../reducers/quiz/quiz.reducer";
 import { Status } from "../utils.types";
 import { getCategories } from "./quiz.utils";
 import { getQuizzes } from "./quiz.utils";

@@ -1,5 +1,5 @@
 import { Category, Quiz } from "../../data/quizdb.types";
-import { QuizAction } from "../../reducers/quiz.reducer.types";
+import { QuizAction } from "../../reducers/quiz/quiz.reducer.types";
 import { Status } from "../utils.types";
 
 

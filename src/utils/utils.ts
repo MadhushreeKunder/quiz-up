@@ -19,3 +19,6 @@ export const getScore = (state: InitialQuizState, action): number => {
       }
   }
 };
+
+
+export const Backend_URL = "https://quizup-backend.madhushreekunde.repl.co"

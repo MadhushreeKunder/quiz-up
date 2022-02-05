@@ -1,6 +1,9 @@
 import { initialQuizState } from "../contexts/quizContext";
 import { categoriesDB, quizDB } from "../data";
 import { InitialQuizState, QuizAction } from "./quiz.reducer.types";
+import { getScore } from "../utils/utils";
+import { quizReducer } from "./quiz.reducer";
+jest.mock('..utils/utils.ts');
 
 describe("testing quiz reducer", () => {
   test("should properly set quiz", () => {

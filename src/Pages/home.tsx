@@ -12,7 +12,7 @@ export function Home() {
             <span className="text-primaryCoral">Quiz-Up</span>{" "}
           </h1>
           <Link
-            to="/quizcategory"
+            to="/quizzes"
             className="text-2xl bg-primaryCoral shadow-lg text-white rounded-full px-8 py-4 font-semibold text-center uppercase"
           >
             Start Quiz

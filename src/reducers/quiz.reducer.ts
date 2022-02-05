@@ -12,7 +12,7 @@ export const quizReducer = (
         case "SET_QUIZZES":
             return {
                 ...state,
-                quiz: action.payload.data,
+                quizzes: action.payload.data,
             };
 
         case "SET_CATEGORIES":

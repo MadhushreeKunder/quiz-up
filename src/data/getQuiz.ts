@@ -1,6 +1,6 @@
 import { Quiz } from "./quizdb.types";
 
-export const quizDB: Quiz[] = [
+export const quizzesDB: Quiz[] = [
   {
     quizName: "Indian Space Program",
     _id: "1",

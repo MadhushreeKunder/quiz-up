@@ -1,5 +1,5 @@
 import { initialQuizState } from "../contexts/quizContext";
-import { categoriesDB, quizDB } from "../data";
+import { categoriesDB, quizzesDB } from "../data";
 import { InitialQuizState, QuizAction } from "./quiz.reducer.types";
 import { getScore } from "../utils/utils";
 import { quizReducer } from "./quiz.reducer";
@@ -16,14 +16,14 @@ describe("testing quiz reducer", () => {
 
     expect(state).toEqual(
       expect.objectContaining({
-        quiz: quizDB,
+       quizzes: quizzesDB,
         categories: categoriesDB,
         currentQuestionNo: 0,
         score: 0,
         seconds: 10,
         viewByCategory: {},
         showAnswer: false,
-        currentQuiz: quizDB[0],
+        currentQuiz: quizzesDB[0],
       })
     );
   });
@@ -43,7 +43,7 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(initialQuizState, action);
 
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
@@ -60,7 +60,7 @@ describe("testing quiz reducer", () => {
 
   test("should properly set question number fro selected quiz", () => {
     const quizState: InitialQuizState = {
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
@@ -71,7 +71,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     };
 
     const action: QuizAction = {
@@ -81,7 +81,7 @@ describe("testing quiz reducer", () => {
 
     const state = quizReducer(quizState, action);
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
@@ -92,13 +92,13 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     });
   });
 
   test("should properly set seconds for a question in quiz", () => {
     const quizState: InitialQuizState = {
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
@@ -109,7 +109,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     };
 
     const action: QuizAction = {
@@ -120,7 +120,7 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
@@ -131,13 +131,13 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     });
   });
 
   test("should properly set timeout for a question", () => {
     const quizState: InitialQuizState = {
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
@@ -148,7 +148,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     };
 
     const action: QuizAction = {
@@ -159,7 +159,7 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
@@ -170,13 +170,13 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: true,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     });
   });
 
   test("should quit the quiz and set to initial state", () => {
     const quizState: InitialQuizState = {
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 8,
@@ -187,7 +187,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: true,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     };
 
     const action: QuizAction = {
@@ -196,7 +196,7 @@ describe("testing quiz reducer", () => {
 
     const state = quizReducer(quizState, action);
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
@@ -209,7 +209,7 @@ describe("testing quiz reducer", () => {
 
   test("should calculate score and show answer", () => {
     const quizState: InitialQuizState = {
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 5,
@@ -220,7 +220,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: false,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     };
 
     const action: QuizAction = {
@@ -240,7 +240,7 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-      quiz: quizDB,
+     quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 10,
@@ -251,7 +251,7 @@ describe("testing quiz reducer", () => {
         noOfQuizzes: 1,
       },
       showAnswer: true,
-      currentQuiz: quizDB[0],
+      currentQuiz: quizzesDB[0],
     });
 
     expect(getScore).toBeCalledWith(quizState, action);

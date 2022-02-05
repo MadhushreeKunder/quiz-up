@@ -4,7 +4,7 @@ import { Status } from "./utils.types";
 
 
 export type ContextInititalState = {
-    quiz: Quiz[] | null;
+    quizzes: Quiz[] | null;
     quizDispatch: (action: QuizAction) => void;
     categories: Category[] | null;
     categoryQuizzes: Quiz[];

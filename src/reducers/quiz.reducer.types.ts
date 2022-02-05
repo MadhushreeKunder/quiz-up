@@ -2,7 +2,7 @@ import { Category, Quiz, Option } from "../data/quizdb.types";
 import { Status } from "../contexts/utils.types";
 
 export type InitialQuizState = {
-  quiz: Quiz[] | null;
+  quizzes: Quiz[] | null;
   categories: Category[] | null;
   currentQuestionNo: number;
   score: number;

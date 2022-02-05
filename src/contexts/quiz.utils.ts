@@ -30,11 +30,11 @@ export const getCategories = async (): Promise<Category[] | ServorError> => {
 
 export const getQuizzes = async (): Promise<Quiz[] | ServorError> => {
     try{
-        const response = await axios.get<{quiz: Quiz[]}>(
-            `${Backend_URL}/quiz`
+        const response = await axios.get<{quizzes: Quiz[]}>(
+            `${Backend_URL}/quizzes`
         );
         console.log({response});
-        return response.data.quiz;
+        return response.data.quizzes;
     } catch(error){
         if (axios.isAxiosError(error)){
             const servorError =  error as AxiosError<ServorError>;

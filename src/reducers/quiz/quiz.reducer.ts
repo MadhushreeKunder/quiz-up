@@ -42,12 +42,10 @@ export const quizReducer = (
                 viewByCategory: action.payload.category,
             };
 
-        // case "CLEAR_CATEGORY_QUIZZES":
-        //     return {
-        //         ...state,
-        //         viewByCategory: {}
-        //         as Category,
-        //     };
+        case "CLEAR_CATEGORY_QUIZZES":
+            return {
+                ...state, viewByCategory: {} as Category,
+            };
 
         case "SET_CURRENT_QUESTION":
             return {

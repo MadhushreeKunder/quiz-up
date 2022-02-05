@@ -1,7 +1,7 @@
-import { Category, Quiz } from "../data/quizdb.types";
-import { ServorError } from "./utils.types";
+import { Category, Quiz } from "../../data/quizdb.types";
+import { ServorError } from "../utils.types";
 import axios, { AxiosError } from "axios";
-import { Backend_URL } from "../utils/utils";
+import { Backend_URL } from "../../utils/utils";
 
 export const getCategories = async (): Promise<Category[] | ServorError> => {
   try {

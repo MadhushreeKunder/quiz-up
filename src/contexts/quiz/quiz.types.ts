@@ -1,6 +1,6 @@
-import { Category, Quiz } from "../data/quizdb.types";
-import { QuizAction } from "../reducers/quiz.reducer.types";
-import { Status } from "./utils.types";
+import { Category, Quiz } from "../../data/quizdb.types";
+import { QuizAction } from "../../reducers/quiz.reducer.types";
+import { Status } from "../utils.types";
 
 
 export type ContextInititalState = {

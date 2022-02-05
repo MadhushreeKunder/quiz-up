@@ -1,4 +1,4 @@
-import { initialQuizState } from "../contexts/quizContext";
+import { initialQuizState } from "../contexts/quiz/quizContext";
 import { categoriesDB, quizzesDB } from "../data";
 import { InitialQuizState, QuizAction } from "./quiz.reducer.types";
 import { getScore } from "../utils/utils";

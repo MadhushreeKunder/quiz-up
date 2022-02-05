@@ -1,12 +1,12 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { Category } from "../data/quizdb.types";
+import { Category } from "../../data/quizdb.types";
 import { ContextInititalState } from "./quiz.types";
-import { InitialQuizState } from "../reducers/quiz.reducer.types";
-import { quizReducer } from "../reducers/quiz.reducer";
-import { Status } from "./utils.types";
+import { InitialQuizState } from "../../reducers/quiz.reducer.types";
+import { quizReducer } from "../../reducers/quiz.reducer";
+import { Status } from "../utils.types";
 import { getCategories } from "./quiz.utils";
 import { getQuizzes } from "./quiz.utils";
-import { getQuizzesByCategory } from "../utils/utils";
+import { getQuizzesByCategory } from "../../utils/utils";
 
 export const QuizContext = createContext<ContextInititalState>(
   {} as ContextInititalState

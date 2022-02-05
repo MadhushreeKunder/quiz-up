@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
-import { QuizProvider } from "./contexts/quizContext";
+import { QuizProvider } from "./contexts/quiz/quizContext";
 
 ReactDOM.render(
   <React.StrictMode>

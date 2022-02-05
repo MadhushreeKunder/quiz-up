@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Home } from "./Pages/home";
-import { Header } from "./utils/header";
+import { Header } from "./pageComponents/header";
 import { Route, Routes } from "react-router-dom";
 import { Login, QuizCategory, QuizQuestions, SignUp } from "./Pages";
 

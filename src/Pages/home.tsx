@@ -1,4 +1,4 @@
-import { Footer } from "../utils/footer";
+import { Footer } from "../pageComponents/footer";
 import { Link } from "react-router-dom";
 
 export function Home() {

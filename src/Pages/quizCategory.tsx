@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Footer } from "../utils/footer";
+import { Footer } from "../pageComponents/footer";
 
 export function QuizCategory() {
   return (

@@ -1,5 +1,5 @@
 import { Quiz } from "../../data"
-import { InitialUserDetailsState, UserDetailsAction } from "../../reducers/userDetail/userDetail.types"
+import { InitialUserDetailsState, UserDetailsAction } from "../../reducers/userDetail/userDetail.reducer.types"
 
 export type InitialUserDetailsContext = {
     userState: InitialUserDetailsState,

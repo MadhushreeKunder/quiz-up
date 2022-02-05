@@ -1,4 +1,4 @@
-import { InitialUserDetailsState, UserDetailsAction } from "./userDetail.types";
+import { InitialUserDetailsState, UserDetailsAction } from "./userDetail.reducer.types";
 
 export const userDetailsReducer = (
   state: InitialUserDetailsState,

@@ -1,5 +1,6 @@
 import { resultReducer } from "./result.reducer";
 import { InitialResultState, ResultAction } from "./result.reducer.types";
+import { initialResultState } from "../../Pages/quiz";
 
 describe("should test result reducer", () => {
   test("  attempted questions count should increase", () => {

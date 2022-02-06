@@ -1,7 +1,9 @@
+import { Status } from "../contexts";
 import { categoriesDB, quizzesDB } from "../data";
 import { Category } from "../data/quizdb.types";
 import { InitialQuizState, QuizAction } from "../reducers/quiz/quiz.reducer.types";
-import { getQuizzesByCategory, getScore } from "./utils";
+import { getQuizzesByCategory, getScore, getCategoryName } from "./utils";
+
 
 describe("should test utility function", () => {
   test("should calculate the score of a user", () => {
@@ -11,6 +13,7 @@ describe("should test utility function", () => {
       currentQuestionNo: 1,
       score: 5,
       seconds: 7,
+      status: {} as Status,
       viewByCategory: {} as Category,
       showAnswer: false,
       currentQuiz: quizzesDB[0],

@@ -8,7 +8,7 @@ export function QuizCategory() {
 
   return (
     <>
-      <div className="max-w-screen-xl w-full mt-32 mx-auto ">
+      <div className="max-w-screen-xl w-full mt-32 mx-auto mb-20">
         <h1 className="font-semibold text-4xl text-secondaryDark mb-8 ">
           Quiz category
         </h1>
@@ -19,9 +19,10 @@ export function QuizCategory() {
                 <h2 className="text-3xl font-medium text-secondaryDark mb-4 ">
                  {quiz.quizName}
                 </h2>
-                Category:{" "}
+                <p className="text-secondaryDark mb-1"> Category:{" "}
                     {categories &&
-                      getCategoryName(quiz.categoryId._id, categories)}
+                      getCategoryName(quiz.categoryId._id, categories)}</p>
+               
                 <button className="text-xl bg-primaryCoral shadow-lg text-white rounded-full px-4 py-2 mt-2 mb-4 font-semibold text-center uppercase">
                   <Link to={`/rules/${quiz._id}`}>Read Rules</Link>
                 </button>

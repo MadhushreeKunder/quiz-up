@@ -12,7 +12,7 @@ export function Header(){
                    <ul className="flex items-center uppercase font-semibold">
                        <Link to="/" className="ml-6 text-primaryCoral">Home</Link>
                        <Link to="/login" className="ml-6 text-primaryCoral">Login</Link>
-                       <Link to="/signup"className="ml-6 text-primaryCoral" >Sign up</Link>
+                       {/* <Link to="/signup"className="ml-6 text-primaryCoral" >Sign up</Link> */}
                    </ul>
                </nav>
                

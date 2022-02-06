@@ -8,7 +8,7 @@ export const userDetailsReducer = (
     case "SET_USER_DETAILS":
       return {
         ...state,
-        _id: action.payload._id,
+        _id: action.payload.data._id,
         knowledgeLevel: action.payload.data.knowledgeLevel,
         totalScore: action.payload.data.totalScore,
         solvedQuizzes: action.payload.data.solvedQuizzes,

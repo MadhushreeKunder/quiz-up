@@ -3,7 +3,7 @@ import "./App.css";
 import { Home } from "./Pages/home";
 import { Header } from "./pageComponents/header";
 import { Route, Routes } from "react-router-dom";
-import { Login, QuizCategory, QuizComp, QuizQuestions, SignUp, Result, QuizBoard, Rules } from "./Pages";
+import { Login, QuizCategory, QuizComp, SignUp, Result, QuizBoard, Rules } from "./Pages";
 
 
 function App() {

@@ -56,7 +56,6 @@ export const Rules = () => {
         }
       }
 
-      console.log(error.response);
       quizDispatch({
         type: "SET_STATUS",
         payload: {

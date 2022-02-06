@@ -93,7 +93,7 @@ export const QuizComp = () => {
                     payload: { answer, currentQuestionNo, score },
                   });
                 }}
-                className="m-2 border border-dashed border-gray-400 shadow-lg rounded p-2"
+                className={ showAnswer ? answer.isRight ? "right-answer" : "wrong-answer" : "answer-button"}
               >
                 {answer.text}
               </button>

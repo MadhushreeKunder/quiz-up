@@ -16,8 +16,9 @@ export const localStorageHasItem = (key: string): string | null => {
 export const setupAuthHeaderForServiceCalls = (
   token: string
 ): string | undefined => {
-  console.log(token);
+  console.log("token", token);
   if (token) {
+    console.log("token got", token);
     return (axios.defaults.headers.common["Authorization"] = token);
   }
   delete axios.defaults.headers.common["Authorization"];
@@ -41,12 +42,12 @@ export const setupAuthExceptionHandler = (
 };
 
 export const setUpUser = (
-  setUser,
-  setToken,
   username: string,
   id: string,
   token: string,
-  email: string
+  email: string,
+  setUser,
+  setToken
 ): void => {
   setUser({
     _id: id,

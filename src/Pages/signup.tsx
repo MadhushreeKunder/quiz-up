@@ -7,8 +7,8 @@ import { FaUser, FaLock, FaEye, FaEyeSlash, FaEnvelope } from "react-icons/fa";
 export const SignUp = () => {
     const { status, signUpUserWithCreds } = useAuth();
   //   const { userDetailsDispatch } = useUserDetail();
-  // const { state } = useLocation();
-  // const navigate = useNavigate();
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   const [signUpCredentials, setSignUpCredentials] = useState({
     email: "",
@@ -32,13 +32,13 @@ export const SignUp = () => {
           )
         ) {
           if (signUpCredentials.password === signUpCredentials.confirmPassword) {
-            const result = await signUpUserWithCreds(
+           await signUpUserWithCreds(
               signUpCredentials.username,
               signUpCredentials.password,
               signUpCredentials.email
             );
             // if (result.success) {
-            //   userDispatch({ type: "ADD_USER", payload: result.user._id });
+            //   // userDispatch({ type: "ADD_USER", payload: result.user._id });
             //   navigate(state?.from ? state.from : "/");
             // }
           } else {
@@ -194,11 +194,7 @@ export const SignUp = () => {
             </Link>
           </small>
         </form>
-        <h3>
-          {status?.loading && (
-            <img src="/Images/Loading.svg" alt="loading" />
-          )}
-        </h3>
+
       </div>
     </div>
   );

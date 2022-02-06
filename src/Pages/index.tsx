@@ -5,5 +5,6 @@ export { Login } from "./login";
 export { SignUp } from "./signup";
 export { QuizComp } from "./quiz";
 export { Result } from "./result";
-export {QuizBoard} from "./quizBoard";
+export { QuizBoard } from "./quizBoard";
 export { Rules } from "./rules";
+export { Logout } from "./logout";

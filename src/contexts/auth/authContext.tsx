@@ -22,7 +22,7 @@ export const AuthContext = createContext<InitialAuthState>(
 );
 
 export const AuthProvider = ({ children }) => {
-  const { state } = useLocation();
+  const { state } = useLocation() as any;
   let savedToken = localStorageHasItem("token");
   if (savedToken) {
     setupAuthHeaderForServiceCalls(savedToken);
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         setUpUser(
           username,
           response.data.user._id,
-          response.data.user.token,
+          response.data.token,
           response.data.user.email,
           setUser,
           setToken

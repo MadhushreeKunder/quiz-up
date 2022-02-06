@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         setUpUser(
           username,
           response.data.user._id,
-          response.data.token,
+          response.data.user.token,
           response.data.user.email,
           setUser,
           setToken
@@ -76,7 +76,6 @@ export const AuthProvider = ({ children }) => {
         navigate(state?.from ? state.from : "/");
       }
     } catch (error) {
-      console.error(error.response);
       if (axios.isAxiosError(error)) {
         const serverError = error as AxiosError<ServerError>;
         if (serverError && serverError.response) {
@@ -88,7 +87,6 @@ export const AuthProvider = ({ children }) => {
           } as Status);
         }
       }
-      console.log(error.response);
       setStatus({
         error: {
           errorMessage: "Something went wrong, try again!",
@@ -126,7 +124,6 @@ export const AuthProvider = ({ children }) => {
         navigate(state?.from ? state.from : "/");
       }
     } catch (error) {
-      console.log(error.response);
       if (axios.isAxiosError(error)) {
         const serverError = error as AxiosError<ServerError>;
         if (serverError && serverError.response) {
@@ -138,7 +135,6 @@ export const AuthProvider = ({ children }) => {
           } as Status);
         }
       }
-      console.log(error.response);
       setStatus({
         error: {
           errorMessage: "Something went wrong, try again!",

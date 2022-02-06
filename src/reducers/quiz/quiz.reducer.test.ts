@@ -1,26 +1,30 @@
 import { initialQuizState } from "../../contexts/quiz/quizContext";
 import { categoriesDB, quizzesDB } from "../../data";
 import { InitialQuizState, QuizAction } from "./quiz.reducer.types";
-import { getScore } from "../../utils/utils";
+// import { getScore } from "../../utils/utils";
 import { quizReducer } from "./quiz.reducer";
-jest.mock('..utils/utils.ts');
+import { Status } from "../../contexts/utils.types";
+jest.mock("..utils/utils.ts");
+const getScore = require("../../utils/utils")
 
 describe("testing quiz reducer", () => {
   test("should properly set quiz", () => {
     const action: QuizAction = {
       type: "SET_QUIZ",
-      payload: { quizId: "1" },
+      //@ts-ignore
+      payload: { quizId: "1"  },
     };
 
     const state = quizReducer(initialQuizState, action);
 
     expect(state).toEqual(
       expect.objectContaining({
-       quizzes: quizzesDB,
+        quizzes: quizzesDB,
         categories: categoriesDB,
         currentQuestionNo: 0,
         score: 0,
         seconds: 10,
+        status: {} as Status,
         viewByCategory: {},
         showAnswer: false,
         currentQuiz: quizzesDB[0],
@@ -33,7 +37,7 @@ describe("testing quiz reducer", () => {
       type: "FILTER_CATEGORY_QUIZZES",
       payload: {
         category: {
-          id: "11",
+          _id: "11",
           name: "ISRO",
           noOfQuizzes: 1,
         },
@@ -43,11 +47,13 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(initialQuizState, action);
 
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
       seconds: 10,
+      status: {} as Status,
+
       viewByCategory: {
         id: "11",
         name: "ISRO",
@@ -60,13 +66,14 @@ describe("testing quiz reducer", () => {
 
   test("should properly set question number fro selected quiz", () => {
     const quizState: InitialQuizState = {
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
       seconds: 10,
+      status: {} as Status,
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -81,13 +88,15 @@ describe("testing quiz reducer", () => {
 
     const state = quizReducer(quizState, action);
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
       seconds: 10,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -98,13 +107,15 @@ describe("testing quiz reducer", () => {
 
   test("should properly set seconds for a question in quiz", () => {
     const quizState: InitialQuizState = {
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
       seconds: 10,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -120,13 +131,15 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
       seconds: 3,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -137,13 +150,15 @@ describe("testing quiz reducer", () => {
 
   test("should properly set timeout for a question", () => {
     const quizState: InitialQuizState = {
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
       seconds: 10,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -159,13 +174,15 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 0,
       seconds: "Time Out",
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -176,13 +193,15 @@ describe("testing quiz reducer", () => {
 
   test("should quit the quiz and set to initial state", () => {
     const quizState: InitialQuizState = {
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 8,
       seconds: 7,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -196,11 +215,13 @@ describe("testing quiz reducer", () => {
 
     const state = quizReducer(quizState, action);
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 0,
       score: 0,
       seconds: 10,
+      status: {} as Status,
+
       viewByCategory: {},
       showAnswer: false,
       currentQuiz: null,
@@ -209,13 +230,15 @@ describe("testing quiz reducer", () => {
 
   test("should calculate score and show answer", () => {
     const quizState: InitialQuizState = {
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 5,
       seconds: 7,
+      status: {} as Status,
+
       viewByCategory: {
-        id: "11",
+        _id: "11",
         name: "ISRO",
         noOfQuizzes: 1,
       },
@@ -240,11 +263,13 @@ describe("testing quiz reducer", () => {
     const state = quizReducer(quizState, action);
 
     expect(state).toEqual({
-     quizzes: quizzesDB,
+      quizzes: quizzesDB,
       categories: categoriesDB,
       currentQuestionNo: 1,
       score: 10,
       seconds: "Nice!",
+      status: {} as Status,
+
       viewByCategory: {
         id: "11",
         name: "ISRO",

@@ -19,7 +19,7 @@ export type UserScore = {
 export type Quiz = {
     quizName: string;
     _id: string;
-    questions: Question[];
+    questions?: Question[];
     highScore?: UserScore[];
     categoryId: {
       _id: string;

@@ -15,7 +15,7 @@ export function Home() {
             to="/quizzes"
             className="text-2xl bg-primaryCoral shadow-lg text-white rounded-full px-8 py-4 font-semibold text-center uppercase"
           >
-            Start Quiz
+            Choose Quiz
           </Link>
         </section>
         <img src="Images/Hero.png" alt="Quiz-Up" className="w-96 h-96"></img>

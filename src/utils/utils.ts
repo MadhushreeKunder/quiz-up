@@ -1,4 +1,5 @@
 import { InitialQuizState } from "../reducers/quiz/quiz.reducer.types";
+import { InitialResultState } from "../reducers/result/result.reducer.types";
 
 import { Category, Quiz } from "../data/quizdb.types";
 

@@ -4,35 +4,36 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaLock, FaEye, FaEyeSlash, FaEnvelope } from "react-icons/fa";
+import { useAuth } from "../contexts";
 
 export function Login() {
-  //   const { status, loginUserWithCreds } = useAuth();
-  //   const { state } = useLocation();
-  //   const navigate = useNavigate();
-  //   const [loginCredentials, setLoginCredentials] = useState({
-  //     username: "",
-  //     password: "",
-  //     message: "",
-  //     showPassword: false,
-  //   });
+    const { status, loginUserWithCreds } = useAuth();
+    const { state } = useLocation();
+    const navigate = useNavigate();
+    const [loginCredentials, setLoginCredentials] = useState({
+      username: "",
+      password: "",
+      message: "",
+      showPassword: false,
+    });
 
-  //   const loginUser = async () => {
-  //     if (loginCredentials.username && loginCredentials.password) {
-  //       const result = await loginUserWithCreds(
-  //         loginCredentials.username,
-  //         loginCredentials.password
-  //       );
+    const loginUser = async (): Promise<void> => {
+      if (loginCredentials.username && loginCredentials.password) {
+        const result = await loginUserWithCreds(
+          loginCredentials.username,
+          loginCredentials.password
+        );
 
-  //       if (result.success) {
-  //         navigate(state?.from ? state.from : "/");
-  //       }
-  //     } else {
-  //       setLoginCredentials({
-  //         ...loginCredentials,
-  //         message: "Username & Password required",
-  //       });
-  //     }
-  //   };
+        // if (result.success) {
+        //   navigate(state?.from ? state.from : "/");
+        // }
+      } else {
+        setLoginCredentials({
+          ...loginCredentials,
+          message: "Username & Password required",
+        });
+      }
+    };
 
   return (
     <div className="max-w-screen-xl w-full mt-32 mx-auto">
@@ -56,14 +57,14 @@ export function Login() {
               placeholder="Enter username"
               className="text-slate-900 font-medium p-2 border-2 border-gray-400 "
               required
-              //   value={loginCredentials.username}
-              //   onChange={(e) =>
-              //     setLoginCredentials(() => ({
-              //       ...loginCredentials,
-              //       msg: "",
-              //       username: e.target.value,
-              //     }))
-              //   }
+                value={loginCredentials.username}
+                onChange={(e) =>
+                  setLoginCredentials(() => ({
+                    ...loginCredentials,
+                    msg: "",
+                    username: e.target.value,
+                  }))
+                }
             />
           </div>
 
@@ -72,38 +73,37 @@ export function Login() {
               <FaLock className="inline " /> Password
             </label>
             <input
-              type="text"
-              //   type={loginCredentials.showPassword ? "text" : "password"}
+                type={loginCredentials.showPassword ? "text" : "password"}
               placeholder="Enter password"
               className="text-slate-900 font-medium  p-2 border-2 border-gray-400"
               required
-              //   value={loginCredentials.password}
-              //   onChange={(e) =>
-              //     setLoginCredentials(() => ({
-              //       ...loginCredentials,
-              //       msg: "",
-              //       password: e.target.value,
-              //     }))
-              //   }
+                value={loginCredentials.password}
+                onChange={(e) =>
+                  setLoginCredentials(() => ({
+                    ...loginCredentials,
+                    msg: "",
+                    password: e.target.value,
+                  }))
+                }
             />
 
             <button
               className="text-slate-900 absolute right-3 top-11"
-              //   onClick={() =>
-              //     setLoginCredentials(() => ({
-              //       ...loginCredentials,
-              //       showPassword: !loginCredentials.showPassword,
-              //     }))
-              //   }
+                onClick={() =>
+                  setLoginCredentials(() => ({
+                    ...loginCredentials,
+                    showPassword: !loginCredentials.showPassword,
+                  }))
+                }
             >
-              <FaEye />
-              {/* {loginCredentials.showPassword ? <FaEye /> : <FaEyeSlash />} */}
+              {/* <FaEye /> */}
+              {loginCredentials.showPassword ? <FaEye /> : <FaEyeSlash />}
             </button>
           </div>
-          {/* <p>{loginCredentials.msg}</p> */}
+          <p>{loginCredentials.message}</p>
           <button
             className="py-2 px-4 m-4 block w-fit rounded-lg bg-primaryCoral shadow-lg active:shadow-gray-300 text-white font-bold"
-            // onClick={loginUser}
+            onClick={loginUser}
           >
             Login
           </button>

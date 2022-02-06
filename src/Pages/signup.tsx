@@ -1,14 +1,14 @@
 import { useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useAuth, useUser } from "../contexts";
+import { useAuth, useUserDetail } from "../contexts";
 import { FaUser, FaLock, FaEye, FaEyeSlash, FaEnvelope } from "react-icons/fa";
 
 export const SignUp = () => {
-  //   const { status, signUpUserWithCreds } = useAuth();
-  //   const { userDispatch } = useUser();
-  const { state } = useLocation();
-  const navigate = useNavigate();
+    const { status, signUpUserWithCreds } = useAuth();
+  //   const { userDetailsDispatch } = useUserDetail();
+  // const { state } = useLocation();
+  // const navigate = useNavigate();
 
   const [signUpCredentials, setSignUpCredentials] = useState({
     email: "",
@@ -20,56 +20,56 @@ export const SignUp = () => {
     message: "",
   });
 
-  //   const signUpUser = async () => {
-  //     if (
-  //       signUpCredentials.email &&
-  //       signUpCredentials.username &&
-  //       signUpCredentials.password
-  //     ) {
-  //       if (
-  //         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-  //           signUpCredentials.email
-  //         )
-  //       ) {
-  //         if (signUpCredentials.password === signUpCredentials.confirmPassword) {
-  //           const result = await signUpUserWithCreds(
-  //             signUpCredentials.username,
-  //             signUpCredentials.password,
-  //             signUpCredentials.email
-  //           );
-  //           if (result.success) {
-  //             userDispatch({ type: "ADD_USER", payload: result.user._id });
-  //             navigate(state?.from ? state.from : "/");
-  //           }
-  //         } else {
-  //           setSignUpCredentials({
-  //             ...signUpCredentials,
-  //             message: "Passwords doesn't Match",
-  //           });
-  //         }
-  //       } else {
-  //         setSignUpCredentials({
-  //           ...signUpCredentials,
-  //           message: "Enter a valid email id",
-  //         });
-  //       }
-  //     } else {
-  //       setSignUpCredentials({
-  //         ...signUpCredentials,
-  //         message: "Every field is required",
-  //       });
-  //     }
-  //   };
+    const signUpUser = async () => {
+      if (
+        signUpCredentials.email &&
+        signUpCredentials.username &&
+        signUpCredentials.password
+      ) {
+        if (
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+            signUpCredentials.email
+          )
+        ) {
+          if (signUpCredentials.password === signUpCredentials.confirmPassword) {
+            const result = await signUpUserWithCreds(
+              signUpCredentials.username,
+              signUpCredentials.password,
+              signUpCredentials.email
+            );
+            // if (result.success) {
+            //   userDispatch({ type: "ADD_USER", payload: result.user._id });
+            //   navigate(state?.from ? state.from : "/");
+            // }
+          } else {
+            setSignUpCredentials({
+              ...signUpCredentials,
+              message: "Passwords doesn't Match",
+            });
+          }
+        } else {
+          setSignUpCredentials({
+            ...signUpCredentials,
+            message: "Enter a valid email id",
+          });
+        }
+      } else {
+        setSignUpCredentials({
+          ...signUpCredentials,
+          message: "Every field is required",
+        });
+      }
+    };
 
   return (
     <div className="max-w-screen-xl w-full mt-32 mx-auto mb-8">
       <div className="py-12 px-16 w-max flex flex-col items-center m-auto shadow-lg rounded-lg ">
         <h1 className=" text-2xl font-semibold text-secondaryDark">SignUp</h1>{" "}
-        {/* <h3 className="fixed z-10 pt-40  top-0  h-full overflow-auto bg-opacity-10">
+        <h3 className="fixed z-10 pt-40  top-0  h-full overflow-auto bg-opacity-10">
           {status?.loading && (
-            <img src="/Images/Loading-blue.svg" alt="loading" />
+            <img src="/Images/Loading.svg" alt="loading" />
           )}
-        </h3> */}
+        </h3>
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex flex-col items-center justify-center align-middle my-4 mx-auto"
@@ -182,7 +182,7 @@ export const SignUp = () => {
 
           <button
             className="py-2 px-4 m-4 block w-fit rounded-lg bg-primaryCoral shadow-lg active:shadow-gray-300 text-white font-bold"
-            // onClick={signUpUser}
+            onClick={signUpUser}
           >
             Sign Up
           </button>
@@ -194,11 +194,11 @@ export const SignUp = () => {
             </Link>
           </small>
         </form>
-        {/* <h3>
+        <h3>
           {status?.loading && (
-            <img src="/Images/Loading-blue.svg" alt="loading" />
+            <img src="/Images/Loading.svg" alt="loading" />
           )}
-        </h3> */}
+        </h3>
       </div>
     </div>
   );

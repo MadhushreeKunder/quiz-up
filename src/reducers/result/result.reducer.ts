@@ -1,6 +1,5 @@
 import { InitialResultState, ResultAction } from "./result.reducer.types";
 
-
 export const resultReducer = (
   state: InitialResultState,
   action: ResultAction
@@ -12,5 +11,7 @@ export const resultReducer = (
       return { ...state, rightAnswers: action.payload.rightAnswers + 1 };
     case "WRONG_ANSWERS":
       return { ...state, wrongAnswers: action.payload.wrongAnswers + 1 };
+    default:
+      throw new Error();
   }
 };

@@ -74,7 +74,7 @@ export const sendSolvedQuizzes = async (
       state: {
         resultState,
         questions,
-        quizId,
+        quizId
       },
     });
   }

@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/auth/authContext";
 import { useQuiz } from "../contexts/quiz/quizContext";
 import { useUserDetail } from "../contexts/user/userDetailsContext";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { resultReducer } from "../reducers/result/result.reducer";
 import { InitialResultState } from "../reducers/result/result.reducer.types";
 import { setResult } from "../utils/utils";
@@ -93,7 +93,17 @@ export const QuizComp = () => {
                     payload: { answer, currentQuestionNo, score },
                   });
                 }}
-                className={ showAnswer ? answer.isRight ? "right-answer" : "wrong-answer" : "answer-button"}
+                // className={ showAnswer ?
+
+                //   answer.isRight ? "right-answer" : "wrong-answer" : "answer-button"}
+                // className={ showAnswer ? answer.isRight ? answer? "right-answer" : "wrong-answer" : "answer-button": "answer-button"}
+                className={
+                  showAnswer
+                    ? answer.isRight
+                      ? "right-answer"
+                      : "wrong-answer"
+                    : "answer-button"
+                }
               >
                 {answer.text}
               </button>
@@ -153,12 +163,12 @@ export const QuizComp = () => {
           ) : (
             <button
               className="py-2 px-4 rounded-lg border-2 border-primaryCoral text-primaryCoral font-medium"
-              onClick={() =>
+              onClick={() => {
                 quizDispatch({
                   type: "SET_CURRENT_QUESTION",
                   payload: { questionNo: currentQuestionNo },
-                })
-              }
+                });
+              }}
             >
               Next
             </button>

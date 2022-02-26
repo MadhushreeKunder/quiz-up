@@ -23,7 +23,7 @@ export const initialUserDetailsState: InitialUserDetailsState = {
 export const getUserDetails = async (): Promise<UserDetails | ServerError> => {
   try {
     const response = await axios.get<{ userDetails: UserDetails }>(
-      `${Backend_URL}/user`
+      `${Backend_URL}/user-details`
     );
     console.log({ response });
     return response.data.userDetails;

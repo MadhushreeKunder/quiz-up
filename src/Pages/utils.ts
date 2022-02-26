@@ -11,7 +11,7 @@ export const postSolvedQuizzes = async (
 ): Promise<UserSolvedQuizzes | ServerError | undefined> => {
   try {
     const response = await axios.post<{ solvedQuiz: UserSolvedQuizzes }>(
-      `${Backend_URL}/user/solved-quizzes`,
+      `${Backend_URL}/user-details/solved-quizzes`,
       { quizId, score, totalScore: totalUserScore, knowledgeLevel }
     );
     console.log({ response });
@@ -93,7 +93,7 @@ export const postUpdatedScore = async (
   try {
     console.log({ quizId });
     const response = await axios.post(
-      `${Backend_URL}/user/solved-quizzes/${quizId}`,
+      `${Backend_URL}/user-details/solved-quizzes/${quizId}`,
       { score, totalScore: totalUserScore, knowledgeLevel }
     );
     console.log({ response });

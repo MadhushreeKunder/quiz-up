@@ -59,11 +59,11 @@ export const setResult = (
 };
 
 export const getCategoryName = (
-  categroryId: string,
+  categoryId: string,
   categories: Category[]
 ): string | undefined => {
   const getCategory = categories.find(
-    (category) => category._id === categroryId
+    (category) => category._id === categoryId
   );
   return getCategory ? getCategory.name : undefined;
 };
